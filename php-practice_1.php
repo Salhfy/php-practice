@@ -3,7 +3,7 @@
 $name = '安藤';
 $selfintro = '私の名前は「'. $name .'」です。';
 
-var_dump($selfintro);
+echo $selfintro;
 
 
 // Q2 四則演算
@@ -16,15 +16,16 @@ echo $num. "\n";
 
 // Q3 日付操作
 $datetime = new DateTime('2019-05-23 14:28:22');
-$date = '現在時刻は'.$datetime->format('Y年m月d日 H時i分s秒').'です。';
+$date = '現在時刻は、'.$datetime->format('Y年m月d日 H時i分s秒').'です。';
 echo $date;
+
 
 
 // Q4 条件分岐-1 if文
 $device = ['mac','windows','chrome','Unix'];
 $device = 'mac';
 if($device){
-    echo '使用OSは'. $device . 'です。';
+    echo '使用OSは、'. $device . 'です。';
 }else{
     echo 'どちらでもありません。';
 }
@@ -72,18 +73,26 @@ if (isset($prefectures['埼玉県'])) {
 }
 
 
-// Q9 連想配列-3
+// Q9 連想配列-3¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥
 $prefectures = ['東京都'=>'新宿区',
                 '神奈川県'=>'横浜市',
                 '千葉県'=>'千葉市',
                 '埼玉県'=>'さいたま市',
                 '栃木県'=>'宇都宮市',
                 '群馬県'=>'前橋市',
-                '茨城県'=>'水戸',
+                '茨城県'=>'水戸市',
                 '宮崎県'=>'宮崎',
                 '鹿児島県'=>'鹿児島'];
                 
-if (isset($prefectures['東京','神奈川県','千葉県','埼玉県',]))
+$kanto = ['東京都', '神奈川県', '千葉県', '埼玉県', '栃木県', '群馬県', '茨城県'];
+
+foreach ($prefectures as $pref => $capital) {
+    if (in_array($pref, $kanto)) {
+        echo "{$pref}の県庁所在地は、{$capital}です。\n";
+    } else {
+        echo "{$pref}は関東地方ではありません。\n";
+    }
+}
 
 // Q10 関数-1
 function hello($name){

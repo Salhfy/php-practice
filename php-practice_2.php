@@ -72,17 +72,44 @@ class Student
     }
 }
 
-$Yamada = new Student('120','山田');
-echo ('学籍番号' . $Yamada->studentId . '番の生徒は'. $Yamada->studentName . 'です。');
+$student = new Student(120, '山田');
+if (is_int($student->studentId) && $student->studentId > 0) {
+    echo "学籍番号{$student->studentId}番の生徒は{$student->studentName}です。";
+} else {
+    echo "学籍番号は正の整数である必要があります。";
+}
 
 
 // Q4 オブジェクト-2
+class Student
+{
+    public $studentId;
+    public $studentName;
+
+    public function __construct($id, $name)
+    {
+        $this->studentId = $id;
+        $this->studentName = $name;
+    }
+
+    public function attend()
+    {
+        echo "{$this->studentName}はPHPの授業に参加しました。学籍番号：{$this->studentId}";
+    }
+}
+
+$yamada = new Student(120, '山田');
+$yamada->attend('PHP');
+
+
+// Q5 定義済みクラス
+//問題１
 $date = new Datetime('2021-03-02');
 $date -> modify('-1 month');
 echo $date-> format('Y-m-d');
 
 
-// Q5 定義済みクラス
+//問題２
 $date1 = strtotime('2021-03-02');
 $date2 = strtotime('1992-04-25');
 
