@@ -85,13 +85,7 @@ $prefectures = ['東京都'=>'新宿区',
                 '鹿児島県'=>'鹿児島'];
 
 foreach ($prefectures as $pref => $capital) {
-    if ($pref === '東京都' || 
-        $pref === '神奈川県' || 
-        $pref === '千葉県' ||
-        $pref === '埼玉県' || 
-        $pref === '栃木県' || 
-        $pref === '群馬県' || 
-        $pref === '茨城県') {
+    if ($pref !== '宮崎県' && $pref !== '鹿児島県') {
         echo "{$pref}の県庁所在地は、{$capital}です。\n";
     } else {
         echo "{$pref}は関東地方ではありません。\n";
